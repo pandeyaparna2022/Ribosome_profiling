@@ -53,7 +53,7 @@ done
 cd ..
 
 # Deleate them as they take up a lot of space. We are deleting them here because we are not working with them anymore.
-rm -r fastq.gz
+rm -r *fastq.gz
 
 # You can now download all the html files (using the wildcard *.html) onto your local computer and assess the quality of the reads
 # example code : scp -r <username>@binfservms01.unibe.ch:/path/to/the/QC_results_exercise1/*.html /path/to/the/destination/folder/in/local/computer/
