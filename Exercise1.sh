@@ -56,4 +56,4 @@ cd ..
 rm -r *fastq.gz
 
 # You can now download all the html files (using the wildcard *.html) onto your local computer and assess the quality of the reads
-# example code : scp -r <username>@binfservms01.unibe.ch:/path/to/the/QC_results_exercise1/*.html /path/to/the/destination/folder/in/local/computer/
+# example code : scp -r <username>@binfservms01.unibe.ch:</path/to/the/QC_results_exercise1/>*.html </path/to/the/destination/folder/in/local/computer/>
