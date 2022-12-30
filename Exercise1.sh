@@ -9,7 +9,7 @@
 wd=$1 #working directory where you want to download the files and do further processing, user needs to input this directory when running the script with sbatch
 # example sbatch Exercise1.sh </path/to/your/desired/working/directory/>
 
-module load UHTS/Analysis/sratoolkit/2.10.7
+#module load UHTS/Analysis/sratoolkit/2.10.7
 module load UHTS/Quality_control/fastqc/0.11.9
 
 cd ${wd}
@@ -48,6 +48,8 @@ for file in ${wd}/*.fastq.gz; do ln -s "$file" . ; done
 for i in `ls -1 *.fastq.gz`;
 do fastqc -t 6 $i; rm $i;
 done
+
+#multiqc .
 
 # Go back a directory where all the downloaded fastq.gz files are present
 cd ..
