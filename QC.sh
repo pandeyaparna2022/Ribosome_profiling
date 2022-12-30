@@ -16,7 +16,7 @@ destination=$2
 
 #load required modules
 module load UHTS/Quality_control/fastqc/0.11.9
-module load UHTS/Analysis/sratoolkit/2.10.7
+module load UHTS/Analysis/MultiQC/1.8
 
 #change directory to interim
 cd ${destination}
@@ -28,11 +28,10 @@ cd ${destination}
 for file in ${source}*.fastq.gz; do ln -s "$file" . ; done
 
 for i in `ls -1 *.fastq.gz`;
-do fastqc -t 6 $i; 
+do fastqc -t 6 $i; rm $i;
 done
 
 multiqc .
 
-rm *.gz
 
 #You can now download the html files on your local computer to assess the quality of raw reads
