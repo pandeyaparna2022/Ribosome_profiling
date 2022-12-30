@@ -52,7 +52,7 @@ done
 # Go back a directory where all the downloaded fastq.gz files are present
 cd ..
 
-# Deleate them as they take up a lot of space. We are deleting them here because we are not working with them anymore.
+# As we are not working with them anymore, delete them as they take up a lot of space.
 rm -r *fastq.gz
 
 # You can now download all the html files (using the wildcard *.html) onto your local computer and assess the quality of the reads
