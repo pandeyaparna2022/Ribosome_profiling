@@ -16,7 +16,7 @@ All data including Raw fasta files, intermediate processed files and annotation 
 
 ../data/external -all the data files that are downloaded from various outside sources used for annotation.
 
-   /annotation_genome - files for annotating the genome and building genomic indices
+    /annotation_genome - files for annotating the genome and building genomic indices
   
     /indices - genomic indices
     
