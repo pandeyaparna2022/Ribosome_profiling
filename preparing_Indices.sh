@@ -13,35 +13,34 @@ module load UHTS/Aligner/bowtie/1.2.0
 
 source=$1
 cd ${source}
+mkdir indices
 
 #Use bowtie build to make indices
 
 # For the genome
 cd annotation_genome/
-mkdir indices
 gunzip Homo_sapiens.GRCh38.dna.primary_assembly.fa.gz
-bowtie-build Homo_sapiens.GRCh38.dna.primary_assembly.fa ./Indices/GRCh38.p13.genome
+bowtie-build Homo_sapiens.GRCh38.dna.primary_assembly.fa ${source}/indices/GRCh38.p13.genome
 gzip Homo_sapiens.GRCh38.dna.primary_assembly.fa
 
 cd ${source}
 
 # For the "undesired" RNAs
 cd annotation_undesired_RNA/
-mkdir indices
 
-#Combine all the different files containing the different types of undesired RNA
-cat *.txt > GRCh38_p13_r-t-sno-sn-RNA_ENSEMBL_NCBI_GtRNAdb.fa
-bowtie-build GRCh38_p13_r-t-sno-sn-RNA_ENSEMBL_NCBI_GtRNAdb.fa ./Indices/GRCh38_p13_r-t-sno-sn-RNA_ENSEMBL_NCBI_GtRNAdb
+#Combine all the different files containing the different types of undesired RNA. This is done only once.
+cat *.txt > GRCh38_p13_r-t-sno-sn-RNA_ENSEMBL_NCBI_GtRNAdb.fa 
+
+bowtie-build GRCh38_p13_r-t-sno-sn-RNA_ENSEMBL_NCBI_GtRNAdb.fa ${source}/indices/GRCh38_p13_r-t-sno-sn-RNA_ENSEMBL_NCBI_GtRNAdb
 
 cd ${source}
 
 # For the transcriptome
 cd annotation_transcriptome/
-mkdir indices
-bowtie-build GRCh38_p13_APPRIS_CDS_plus18.fa ./Indices/GRCh38_p13_APPRIS_CDS_plus18
+bowtie-build GRCh38_p13_APPRIS_CDS_plus18.fa ${source}/indices/GRCh38_p13_APPRIS_CDS_plus18
 
 
-#Converthing into single-line format for generating codon occupancy plots
+#Converthing into single-line format for generating codon occupancy plots. This is done only once.
 
 awk '/^>/ { if(NR>1) print "";  printf("%s\n",$0); next; } { printf("%s",$0);}  END {printf("\n");}' < GRCh38_p13_APPRIS_CDS_plus18.fa > GRCh38_p13_APPRIS_CDS_plus18_SingleLine.fa
 
