@@ -8,11 +8,16 @@
 #Data Preprocessing
 
 #User needs to input path to this directory where the input data is (source) and the path to the directory where output data should go (destination) when running the script with sbatch
-#example: sbatch adapter_removal.sh </path/to/source/> </path/to/destination>
+#example: sbatch adapter_removal.sh </path/to/source/> </path/to/destination1/> </path/to/destination2/>
 
-source=$1
-destination=$2
+# source/path where the input files are present.
+source=$1 
 
+#destination/path where the processed data should be stored.
+destination1=$2
+
+#destination/path where the report/result of the analysis sould be stored.
+destination2=$3
 
 #Load all the modules required for the QC analysis
 
@@ -21,9 +26,9 @@ module load UHTS/Quality_control/cutadapt/2.5
 module add UHTS/Analysis/MultiQC/1.8
 
 
-mkdir ${destination}/preprocessed_data
+mkdir ${destination1}/preprocessed_data
 
-cd ${destination}/preprocessed_data
+cd ${destination1}/preprocessed_data
 
 #Create a link to the raw files for data preprocessing 
 #for loop that loops over all the files with .fsatq extension in the given path and creates individual links for all the .fastq files in the current directory
@@ -44,8 +49,8 @@ do cutadapt -j 0 -q 25 --cut -4 -m 25 -o $(basename ${i} .fastq.gz)_tr.fastq.gz 
 
 #QC analysis of the processed reads
 
-mkdir QC_trimmed_reads
-cd QC_trimmed_reads
+mkdir ${destination2}/QC_trimmed_reads
+cd ${destination2}/QC_trimmed_reads
 
 for j in ../*_tr.fastq.gz; do ln -s "$j" . ; done
 
