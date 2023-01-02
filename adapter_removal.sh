@@ -53,3 +53,5 @@ for j in `ls -1 *_tr.fastq.gz`; do fastqc -t 32 $j; rm $j; done
 
 multiqc .
 
+#You can now download the html files on your local computer to assess the quality of the trimmed reads.
+
