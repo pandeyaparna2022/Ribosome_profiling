@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#SBATCH --job-name="Data_Preprocessing"
+#SBATCH --job-name="Adapter_removal"
 #SBATCH --nodes=1
 #SBATCH --cpus-per-task=1
 #SBATCH --time=03:00:00
@@ -26,11 +26,11 @@ module load UHTS/Quality_control/cutadapt/2.5
 module add UHTS/Analysis/MultiQC/1.8
 
 
-mkdir ${destination1}/preprocessed_data
+mkdir ${destination1}/trimmed_data
 
-cd ${destination1}/preprocessed_data
+cd ${destination1}/trimmed_data
 
-#Create a link to the raw files for data preprocessing 
+#Create a link to the raw files for data processing 
 #for loop that loops over all the files with .fsatq extension in the given path and creates individual links for all the .fastq files in the current directory
 
 for file in ${source}/*.fastq.gz; do ln -s "$file" . ; done
