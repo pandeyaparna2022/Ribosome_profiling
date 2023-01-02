@@ -18,7 +18,7 @@ All data including Raw fasta files, intermediate processed files and annotation 
 
     /annotation_genome - files for annotating the genome and building genomic indices
   
-    /indices - genomic indices
+        /indices - genomic indices
     
   /annnotation_transcriptome - files for annotating the transcriptome and building transcriptomic indices 
   
