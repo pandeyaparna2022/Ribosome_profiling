@@ -7,6 +7,7 @@
 
 # load bowtie 
 module load UHTS/Aligner/bowtie/1.2.0
+module load SequenceAnalysis/blat/36
 
 #User needs to input path to this directory where the genomic files are (source) (data/external). The prepared indicies will be stored in a new folder within the source folder called indices
 #example: sbatch preparing_Indices.sh </path/to/source/> 
@@ -21,6 +22,7 @@ mkdir indices
 cd annotation_genome/
 gunzip Homo_sapiens.GRCh38.dna.primary_assembly.fa.gz
 bowtie-build Homo_sapiens.GRCh38.dna.primary_assembly.fa ${source}/indices/GRCh38.p13.genome
+faToTwoBit Homo_sapiens.GRCh38.dna.primary_assembly.fa  GRCh38.p13.genome.2bit # done once for Riboseq QC analysis (after mapping to the genome)
 gzip Homo_sapiens.GRCh38.dna.primary_assembly.fa
 
 cd ${source}
