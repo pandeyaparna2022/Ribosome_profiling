@@ -24,7 +24,8 @@ All data including Raw fasta files, intermediate processed files and annotation 
  
  
 All the scripts are written with SBATCH options at the beginning so that the script could be submitted to the SLURM workload manager to reduce the conputational load at the head node of the IUB cluster.
-All the scripts require at least 1 input path and 1 output path indicating the location of the input and the output file respectively. The script can be run as follows:
+
+All the scripts require at least 1 input path and 1 output path indicating the location of the input file to be processed and the location of the output file respectively. The script can be run as follows:
 
 example.sh <path/to/input/files/> <path/to/output/files/>
 
@@ -35,14 +36,22 @@ adapter_trimming.sh </path/to/input/fastq.gz/files/> </path/to/destination/for/o
 preparing_indices.sh </path/to/annotation/files/> </path/to/destination/for/output/files/>
 
 
-In caseses where two different types of input files are required two input paths are need to be given. The script can be run as follows:
+In some caseses where two or more different types of input files are required, two input paths need to be given. For the scripts that require 2 input files the scripts can be run as follows:
 
 example.sh <path/to/type1_input/files/> <path/to/type2_input/files/> <path/to/output/files/>
 
-Following files require 2 input and 1 output paths:
+Following scripts require 2 input and 1 output paths:
  
 mapping.sh </path/to/input/trimmed/fastq.gz/files/> <path/to/prepared/indices> </path/to/output/files/>
 feature_counts.sh </path/to/annotation/file(.gtf)/for/transcriptome/> </path/to/sorted/bam/files/> </path/to/output/files/>
+
+For the scripts that require more than 2 input files the scripts can be run as follows:
+ 
+example.sh <path/to/type1_input/files/> <path/to/type2_input/files/> <path/to/type3_input/files/> <path/to/output/files/>
+ 
+Following scripts require 3 input and 1 output paths:
+Codon_occupancy_generation.sh <path/to/GRCh38_p13_APPRIS_CDS_plus18_SingleLine.fa/file> <path/to/sam/files/generated/by mapping/filtered/reads/to/the/transcriptome/> <path/to/Codon_occupancy_cal.sh/script/> <path/to/output/files/>
+ 
 
 
 
