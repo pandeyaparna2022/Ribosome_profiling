@@ -28,11 +28,21 @@ All the scripts require at least 1 input path and 1 output path indicating the l
 
 example.sh <path/to/input/files/> <path/to/output/files/>
 
+Following scripts require 1 input and 1 output path:
 
-In caseses where different types of files are required as input two input paths are required. The script can be run as follows:
+QC.sh </path/to/input/fastq.gz/files/> </path/to/destination/for/output/files>
+adapter_trimming.sh </path/to/input/fastq.gz/files/> </path/to/destination/for/output/files>
+preparing_indices.sh </path/to/annotation/files/> </path/to/destination/for/output/files/>
+
+
+In caseses where two different types of input files are required two input paths are need to be given. The script can be run as follows:
 
 example.sh <path/to/type1_input/files/> <path/to/type2_input/files/> <path/to/output/files/>
 
+Following files require 2 input and 1 output paths:
+ 
+mapping.sh </path/to/input/trimmed/fastq.gz/files/> <path/to/prepared/indices> </path/to/output/files/>
+feature_counts.sh </path/to/annotation/file(.gtf)/for/transcriptome/> </path/to/sorted/bam/files/> </path/to/output/files/>
 
 
 
