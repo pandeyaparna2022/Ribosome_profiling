@@ -38,6 +38,9 @@ adapter_trimming.sh </path/to/input/fastq.gz/files/> </path/to/destination/for/o
 preparing_indices.sh </path/to/annotation/files/> </path/to/destination/for/output/files/>
 
 
+
+
+
 In some caseses where two or more different types of input files are required, two input paths need to be given. For the scripts that require 2 input files the scripts can be run as follows:
 
 example.sh <path/to/type1_input/files/> <path/to/type2_input/files/> <path/to/output/files/>
@@ -47,6 +50,9 @@ Following scripts require 2 input and 1 output paths:
 mapping.sh </path/to/input/trimmed/fastq.gz/files/> <path/to/prepared/indices> </path/to/output/files/>
 
 feature_counts.sh </path/to/annotation/file(.gtf)/for/transcriptome/> </path/to/sorted/bam/files/> </path/to/output/files/>
+
+
+
 
 For the scripts that require more than 2 input files the scripts can be run as follows:
  
