@@ -6,6 +6,7 @@ These codes are written for analysis of Ribo-Seq data. Please make sure you have
 Recommendation:
 
 Prior to running the code it is suggested to have the following structured layout for the data and results. This is not essential, just a recommentation.
+Attention: names for annotation file names might differ. If it does you might have to change the script at instances where the filename occurs.
 
 Create a folder named data.
 
@@ -24,6 +25,7 @@ All data including Raw fasta files, intermediate processed files and annotation 
  
  
 All the scripts are written with SBATCH options at the beginning so that the script could be submitted to the SLURM workload manager to reduce the conputational load at the head node of the IUB cluster.
+
 
 All the scripts require at least 1 input path and 1 output path indicating the location of the input file to be processed and the location of the output file respectively. The script can be run as follows:
 
