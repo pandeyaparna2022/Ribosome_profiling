@@ -1,7 +1,7 @@
-#Course work
-Course: RNA- sequencing course, module: Ribosome_profiling
 
-These codes are written for analysis of Ribo-Seq data. Please make sure you have access to the raw sequencing data and have downloaded the individual annotation files prior to data analysis. A step-by-step guide for downloading the annotation files are provided at file:///C:/Users/pandapar/Desktop/Uni_courses_2022/RNA_sequencing/RNASeq_2022_RP.html#prepare-annotations under Prepare annotations section (author: Dr. Puneet Sharma)
+RNA- sequencing course, module: Ribosome_profiling
+
+These codes are written for analysis of Ribo-Seq data. Please make sure you have access to the raw sequencing data and have downloaded the individual annotation files prior to data analysis. 
 
 Recommendation:
 
